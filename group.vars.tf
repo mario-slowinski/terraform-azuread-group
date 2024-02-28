@@ -74,14 +74,8 @@ variable "mail_nickname" {
 }
 
 variable "members" {
-  type = list(object({
-    employee_id         = optional(string) # The employee identifier assigned to the user by the organisation.
-    mail                = optional(string) # The SMTP address for the user.
-    mail_nickname       = optional(string) # The email alias of the user.
-    object_id           = optional(string) # The object ID of the user.
-    user_principal_name = optional(string) # The user principal name (UPN) of the user.
-  }))
-  description = "A list of members attributes who should be present in this group."
+  type        = list(string)
+  description = "A list of members object ids who should be present in this group."
   default     = []
 }
 
@@ -92,14 +86,8 @@ variable "onpremises_group_type" {
 }
 
 variable "owners" {
-  type = list(object({
-    employee_id         = optional(string) # The employee identifier assigned to the user by the organisation.
-    mail                = optional(string) # The SMTP address for the user.
-    mail_nickname       = optional(string) # The email alias of the user.
-    object_id           = optional(string) # The object ID of the user.
-    user_principal_name = optional(string) # The user principal name (UPN) of the user.
-  }))
-  description = "A list of members attributes who will be granted ownership of the group."
+  type        = list(string)
+  description = "A list of members object ids who will be granted ownership of the group."
   default     = []
 }
 

@@ -12,9 +12,9 @@ resource "azuread_group" "display_name" {
   hide_from_outlook_clients  = var.hide_from_outlook_clients
   mail_enabled               = var.mail_enabled
   mail_nickname              = var.mail_nickname
-  members                    = length(var.members) > 0 ? [for member in data.azuread_user.member : member.object_id] : null
+  members                    = length(var.members) > 0 ? var.members : null
   onpremises_group_type      = var.onpremises_group_type
-  owners                     = length(var.owners) > 0 ? [for owner in data.azuread_user.owner : owner.object_id] : null
+  owners                     = length(var.owners) > 0 ? var.owners : null
   prevent_duplicate_names    = var.prevent_duplicate_names
   provisioning_options       = var.provisioning_options
   security_enabled           = var.security_enabled
